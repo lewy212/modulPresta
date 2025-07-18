@@ -11,7 +11,7 @@ class Ps_Promo_Banner extends Module
     {
         $this->name = 'ps_promo_banner';
         $this->tab = 'front_office_features';
-        $this->version = '1.0.0';
+        $this->version = '1.0.1';
         $this->author = 'MichalLewczuk';
         $this->need_instance = 0;
         $this->bootstrap = true;
