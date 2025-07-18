@@ -1,10 +1,10 @@
 <?php
+declare(strict_types=1);
 if (!defined('_PS_VERSION_')) {
     exit;
 }
 
-require_once __DIR__ . '/classes/PromoBanner.php';
-
+use Michal\Module\PromoBanner\Form\PromoBanner;
 class Ps_Promo_Banner extends Module
 {
     public function __construct()

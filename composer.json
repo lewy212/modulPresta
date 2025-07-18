@@ -3,10 +3,16 @@
   "description": "Dedykowane banery promocyjne do PrestaShop 8.",
   "type": "prestashop-module",
   "license": "MIT",
+  "version": "1.0.0",
   "authors": [
     {"name": "Michal Lewczuk", "email": "abc@email.com"}
   ],
   "require": {
     "php": ">=7.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Michal\\Module\\PromoBanner\\": "src/"
+    }
   }
 }

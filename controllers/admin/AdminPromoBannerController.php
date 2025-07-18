@@ -1,6 +1,6 @@
 <?php
 
-require_once _PS_MODULE_DIR_ . 'ps_promo_banner/classes/PromoBanner.php';
+use Michal\Module\PromoBanner\Form\PromoBanner;
 
 class AdminPromoBannerController extends ModuleAdminController
 {
