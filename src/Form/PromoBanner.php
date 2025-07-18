@@ -1,5 +1,6 @@
 <?php
 namespace Michal\Module\PromoBanner\Form;
+use ObjectModel;
 class PromoBanner extends ObjectModel
 {
     public $id_promo_banner;
