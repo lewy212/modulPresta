@@ -1,0 +1,12 @@
+{
+  "name": "michal/ps-promo-banner",
+  "description": "Dedykowane banery promocyjne do PrestaShop 8.",
+  "type": "prestashop-module",
+  "license": "MIT",
+  "authors": [
+    {"name": "Michal Lewczuk", "email": "abc@email.com"}
+  ],
+  "require": {
+    "php": ">=7.2"
+  }
+}
