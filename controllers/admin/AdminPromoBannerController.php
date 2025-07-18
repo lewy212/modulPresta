@@ -8,7 +8,7 @@ class AdminPromoBannerController extends ModuleAdminController
     {
         $this->bootstrap = true;
         $this->table = 'promo_banner';
-        $this->className = 'PromoBanner';
+        $this->className = PromoBanner::class;
         $this->lang = false;
         $this->allow_export = false;
         $this->identifier = 'id_promo_banner';
