@@ -43,20 +43,35 @@ class Ps_Promo_Banner extends Module
 
     protected function installTables(): bool
     {
-        $sql = "CREATE TABLE IF NOT EXISTS `" . _DB_PREFIX_ . "promo_banner` (
-            `id_promo_banner` INT AUTO_INCREMENT PRIMARY KEY,
-            `active` TINYINT(1) NOT NULL DEFAULT 0,
-            `image` VARCHAR(255),
-            `title` VARCHAR(255),
-            `text` TEXT,
-            `url` VARCHAR(255),
-            `hook_name` VARCHAR(255),
-            `date_from` DATETIME,
-            `date_to` DATETIME,
-            `date_add` DATETIME,
-            `date_upd` DATETIME
-        ) ENGINE=" . _MYSQL_ENGINE_ . " DEFAULT CHARSET=utf8mb4;";
-        return (bool) Db::getInstance()->execute($sql);
+        $queries = [];
+
+        $queries[] = "CREATE TABLE IF NOT EXISTS `" . _DB_PREFIX_ . "promo_banner` (
+        `id_promo_banner` INT AUTO_INCREMENT PRIMARY KEY,
+        `active` TINYINT(1) NOT NULL DEFAULT 0,
+        `image` VARCHAR(255),
+        `hook_name` VARCHAR(255),
+        `date_from` DATETIME,
+        `date_to` DATETIME,
+        `date_add` DATETIME,
+        `date_upd` DATETIME
+    ) ENGINE=" . _MYSQL_ENGINE_ . " DEFAULT CHARSET=utf8mb4;";
+
+        $queries[] = "CREATE TABLE IF NOT EXISTS `" . _DB_PREFIX_ . "promo_banner_lang` (
+        `id_promo_banner` INT UNSIGNED NOT NULL,
+        `id_lang` INT UNSIGNED NOT NULL,
+        `title` VARCHAR(255),
+        `text` TEXT,
+        `url` VARCHAR(255),
+        PRIMARY KEY (`id_promo_banner`, `id_lang`)
+    ) ENGINE=" . _MYSQL_ENGINE_ . " DEFAULT CHARSET=utf8mb4;";
+
+        foreach ($queries as $sql) {
+            if (!Db::getInstance()->execute($sql)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     protected function uninstallTables(): bool
